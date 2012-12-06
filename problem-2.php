@@ -9,12 +9,11 @@
  * exceed four million, find the sum of the even-valued terms.
  */
 
+// Start counting from 0
 $sum = 0;
-$prev = 1;
-$old = 2;
 
-$detail_count = 0;
-$details = array();
+// Set the initial prev & old terms
+$prev = 1; $old = 2;
 
 // Prevent the sum from exceeding 4,000,000.
 while ($prev < 4000000)
@@ -30,14 +29,7 @@ while ($prev < 4000000)
   if($prev%2 == 0)
   {
     $sum += $prev;
-    $details[$detail_count] = $sum;
   }
-
-  $detail_count++;
 }
 
 echo $sum;
-
-echo '<pre>';
-print_r($details);
-echo '</pre>';

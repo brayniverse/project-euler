@@ -9,9 +9,9 @@
  * exceed four million, find the sum of the even-valued terms.
  */
 
+$sum = 0;
 $a = 0;
 $b = 1;
-$total = 0;
 
 while ($i<4000000)
 {
@@ -23,11 +23,11 @@ while ($i<4000000)
   {
     if ($i%2 == 0)
     {
-      $total += $i;
+      $sum += $i;
     }
   }
 
-  if ($total<1) $total++;
+  if ($sum<1) $sum++;
 }
 
-echo $total-1;
+echo $sum-1;

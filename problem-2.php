@@ -10,24 +10,34 @@
  */
 
 $sum = 0;
-$a = 0;
-$b = 1;
+$prev = 1;
+$old = 2;
 
-while ($i<4000000)
+$detail_count = 0;
+$details = array();
+
+// Prevent the sum from exceeding 4,000,000.
+while ($prev < 4000000)
 {
-  $i = $a+$b;
-  $b = $a;
-  $a = $i;
+  // Store the sum of the previous two terms.
+  $cur = $prev+$old;
 
-  if ($total !== 0)
+  // Update the previous two terms.
+  $prev = $old;
+  $old = $cur;
+
+  // Check that the previous term is even.
+  if($prev%2 == 0)
   {
-    if ($i%2 == 0)
-    {
-      $sum += $i;
-    }
+    $sum += $prev;
+    $details[$detail_count] = $sum;
   }
 
-  if ($sum<1) $sum++;
+  $detail_count++;
 }
 
-echo $sum-1;
+echo $sum;
+
+echo '<pre>';
+print_r($details);
+echo '</pre>';
